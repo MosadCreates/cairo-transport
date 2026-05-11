@@ -1,0 +1,12 @@
+venv/
+*.pdf
+__pycache__/
+.antigravity/
+.gemini/
+.env
+outputs/
+*.png
+*.jpg
+*.jpeg
+*.html
+.DS_Store
