@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+.env
+.streamlit/
+outputs/
+*.png
+*.jpg
+*.jpeg
+*.html
+.DS_Store
+.antigravity/
+.gemini/
