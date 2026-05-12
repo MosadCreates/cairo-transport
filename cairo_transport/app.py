@@ -301,13 +301,26 @@ with tabs[3]:
 
     st.divider()
 
-    st.subheader("Metro Network Efficiency")
-    metro_results = metro_headway_optimization()
+    st.subheader("Metro Network Efficiency (Fleet DP)")
+    
+    # Input for total available trains to be distributed by the DP algorithm
+    total_metro_fleet = st.number_input("Total Metro Trains Available", 50, 300, 120)
+    
+    # Execute the Bounded Knapsack DP optimization
+    metro_results = metro_headway_optimization(total_metro_fleet)
+    
+    # Create dynamic columns based on the number of metro lines
     m_cols = st.columns(len(metro_results))
+    
     for i, res in enumerate(metro_results):
-        m_cols[i].metric(res['line'], f"{res['optimal_hw']} min", delta=f"{res['trains_needed']} Trains")
-        m_cols[i].write(f"Passenger Growth: +{res['improvement_%']}%")
-
+        # Display optimal headway as the main metric and assigned trains as the delta
+        m_cols[i].metric(
+            res['line'], 
+            f"{res['optimal_hw']} min", 
+            delta=f"{res['trains_needed']} Trains"
+        )
+        # Show the percentage of improvement in passenger capacity
+        m_cols[i].write(f"Growth: **+{res['improvement_%']}%**")
 # ---------------------------------------------------------
 # 5. 🚦 REAL-TIME TRAFFIC & PREEMPTION (Greedy)
 # ---------------------------------------------------------

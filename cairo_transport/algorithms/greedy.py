@@ -1,5 +1,4 @@
 """
-greedy.py — CSE112 Project
 D. Greedy Algorithm Applications
 
   1. Traffic Signal Optimisation — Green-time allocation at intersections

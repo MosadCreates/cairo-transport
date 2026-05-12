@@ -1,5 +1,4 @@
 """
-shortest_path.py — CSE112 Project
 B. Shortest Path Algorithms
 
   1. Dijkstra's algorithm  — standard optimal route planning
